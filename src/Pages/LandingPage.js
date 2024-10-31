@@ -4,6 +4,7 @@ import DiscoverUs from '../Components/DiscoverUs';
 import ThreeCardsSection from '../Components/ThreeCardsSection';
 import NavBar from '../Components/Navbar';
 import DonationSection from '../Components/DonationSection';
+import Footer from '../Components/Footer';
 
 const LandingPage = () => {
   return (
@@ -18,6 +19,7 @@ const LandingPage = () => {
         <ThreeCardsSection />
         <DonationSection />
       </main>
+      <Footer />
     </div>
   );
 };

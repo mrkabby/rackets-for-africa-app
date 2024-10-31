@@ -1,11 +1,15 @@
-import React from 'react';
-import AboutusImage from '../images/RAF--23.jpg';
-import DonorsAndPartners from '../Components/DonorsandPartners';
-import TeamGrid from '../Components/Teams';
-import NavBar from '../Components/Navbar';
+import React from "react";
+import { FaEye, FaBullseye, FaHandsHelping } from "react-icons/fa"; // Import icons
+import AboutusImage from "../images/RAF--23.jpg";
+import DonorsAndPartners from "../Components/DonorsandPartners";
+import TeamGrid from "../Components/Teams";
+import NavBar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 const AboutUsPage = () => {
   return (
+    <>
+    
     <div className="relative min-h-screen bg-background">
       {/* Navbar */}
       <NavBar />
@@ -30,34 +34,53 @@ const AboutUsPage = () => {
         {/* Description Section */}
         <div className="text-center mb-12">
           <p className="text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            TACconnect has completed NGOsource's Equivalency Determination process, certifying that our organization is equivalent to a U.S. public charity. This certification makes it easier for U.S.-based donors to collaborate with us.
+            Rackets for Africa (RFA) is a non-profit organization founded in
+            2021 with the aim of providing rackets to individuals and
+            communities in Africa who do not have access to this basic necessity
+            for the sport. Our mission is to help foster a love for tennis and
+            other racket sports, and to provide opportunities for growth and
+            development through play. Rackets For Africa was founded in 2021
+            with the goal of increasing access to tennis in Africa. Our team is
+            comprised of dedicated staff and volunteers who are passionate about
+            making a difference in the lives of children in Africa
           </p>
         </div>
 
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 ">
           {/* Vision Card */}
-          <div className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <h2 className="text-2xl font-semibold text-primary mb-4 text-center">
+          <div className="bg-black p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="flex justify-center mb-4 text-white">
+              <FaEye size={40} /> {/* Vision Icon */}
+            </div>
+            <h2 className="text-2xl font-semibold text-primary mb-4 text-center text-white">
               Our Vision
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              To be the leading enabler of cost-effective technical assistance services for sustainable health systems and service delivery.
+            <p className="text-muted-foreground leading-relaxed text-white">
+              To be the leading enabler of cost-effective technical assistance
+              services for sustainable health systems and service delivery.
             </p>
           </div>
 
           {/* Mission Card */}
-          <div className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-yellow-200 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="flex justify-center mb-4 text-primary">
+              <FaBullseye size={40} /> {/* Mission Icon */}
+            </div>
             <h2 className="text-2xl font-semibold text-primary mb-4 text-center">
               Our Mission
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              To support national and sub-national governments to build and strengthen resilient health systems and improve health outcomes.
+              To support national and sub-national governments to build and
+              strengthen resilient health systems and improve health outcomes.
             </p>
           </div>
 
           {/* Values Card */}
-          <div className="bg-card p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-green-200 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div className="flex justify-center mb-4 text-primary">
+              <FaHandsHelping size={40} /> {/* Values Icon */}
+            </div>
             <h2 className="text-2xl font-semibold text-primary mb-4 text-center">
               Our Values
             </h2>
@@ -83,6 +106,8 @@ const AboutUsPage = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

@@ -10,7 +10,7 @@ const DonorsAndPartners = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-primary">Our Donors</h2>
         <p className="text-muted-foreground">
-          Thank you for supporting the SITTOs. We are a proud Texan non-profit organization that serves locally in the Dallas Fort Worth area. Online giving is easy, safe, and convenient. This is a secure website.
+          We are incredibly grateful for the support from our donors who make our mission possible. Their generosity helps us reach communities in need, empowering individuals and fostering a better future.
         </p>
       </div>
 
@@ -19,16 +19,20 @@ const DonorsAndPartners = () => {
         <div className="flex flex-col items-center">
           <img
             src={Veer}
-            alt="Panera Bread Logo"
+            alt="Veer Foundation Logo"
             className="w-32 h-32 object-cover rounded-lg mb-2"
           />
+          <p className="text-primary font-semibold">Veer Gupta</p>
+          <p className="text-muted-foreground text-sm">Major Donor</p>
         </div>
         <div className="flex flex-col items-center">
           <img
             src={Yash}
-            alt="Walmart Logo"
+            alt="Yash Industries Logo"
             className="w-32 h-32 object-cover rounded-lg mb-2"
           />
+          <p className="text-primary font-semibold">Yash Gupta</p>
+          <p className="text-muted-foreground text-sm">Corporate Sponsor</p>
         </div>
       </div>
 
@@ -36,7 +40,7 @@ const DonorsAndPartners = () => {
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-primary">Our Partners</h2>
         <p className="text-muted-foreground">
-          Thank you for supporting the SITTOs. We are a proud Texan non-profit organization that serves locally in the Dallas Fort Worth area. Online giving is easy, safe, and convenient. This is a secure website.
+          Our partners play a vital role in advancing our mission through strategic collaboration and shared commitment to making a positive impact. Together, we are creating lasting change.
         </p>
       </div>
 
@@ -48,6 +52,8 @@ const DonorsAndPartners = () => {
             alt="ASAP Kids Logo"
             className="w-32 h-32 object-cover rounded-lg mb-2"
           />
+          <p className="text-primary font-semibold">Francisca Nyarko</p>
+          <p className="text-muted-foreground text-sm">Francisca Nyarko Foundation</p>
         </div>
       </div>
     </div>
