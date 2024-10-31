@@ -1,7 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate from React Router
 import Logo from "../images/RAF--21.jpg";
 
 const DonationSection = () => {
+  const navigate = useNavigate();
+
+  // Function to handle navigation to /donations
+  const handleNavigateToDonations = () => {
+    navigate("/donations");
+  };
+
   return (
     <section className="flex flex-col md:flex-row items-center justify-between p-8 bg-background gap-8">
       {/* Text Section */}
@@ -17,12 +25,18 @@ const DonationSection = () => {
         {/* Button Group: Responsive */}
         <div className="flex flex-col md:flex-row items-center gap-4 mt-6 w-full">
           {/* Donate Now Button */}
-          <button className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition w-full md:flex-1">
+          <button
+            onClick={handleNavigateToDonations}
+            className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition w-full md:flex-1"
+          >
             Donate now
           </button>
 
           {/* Volunteer Button */}
-          <button className="bg-green-300 text-black  px-6 py-3 rounded-lg hover:bg-primary-dark transition w-full md:flex-1 flex items-center justify-center">
+          <button
+            onClick={handleNavigateToDonations}
+            className="bg-green-300 text-black px-6 py-3 rounded-lg hover:bg-primary-dark transition w-full md:flex-1 flex items-center justify-center"
+          >
             <img
               alt="volunteer icon"
               src="https://openui.fly.dev/openui/24x24.svg?text=🤝"

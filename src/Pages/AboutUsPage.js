@@ -21,7 +21,7 @@ const AboutUsPage = () => {
           {/* Header Image */}
           <img
             src={AboutusImage}
-            alt="NGOsource logo"
+            alt="RAF logo"
             className="w-full h-72 object-cover rounded-lg shadow-md"
           />
 

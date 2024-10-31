@@ -49,7 +49,7 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="hidden md:flex md:w-auto px-2 py-2 md:rounded">
-        <a href="/donation">
+        <a href="/donations">
           <div className="flex justify-end">
             <div className="flex items-center h-10 w-30 rounded-md bg-[#e5e834] text-black font-medium p-2">
             <svg
