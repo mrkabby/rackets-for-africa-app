@@ -4,9 +4,9 @@ import { FaHandsHelping, FaEnvelope, FaProjectDiagram } from 'react-icons/fa'; /
 
 const ThreeCardsSection = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-green-300">
       {/* Support Us Card */}
-      <div className="p-6 rounded-lg shadow-md bg-green-100">
+      <div className="p-6 rounded-lg shadow-md bg-white">
         <div className="flex justify-center mb-4 text-yellow-500">
           <FaHandsHelping size={40} />
         </div>
@@ -16,7 +16,7 @@ const ThreeCardsSection = () => {
         </p>
         <div className="flex justify-center">
           <Link to="/support">
-            <button className="bg-yellow-300 hover:bg-black hover:text-white py-2 px-4 rounded">
+            <button className="bg-black hover:bg-yellow-300 text-white py-2 px-4 rounded hover:text-black">
               Learn More
             </button>
           </Link>
@@ -24,7 +24,7 @@ const ThreeCardsSection = () => {
       </div>
 
       {/* Contact Us Card */}
-      <div className="bg-green-100 text-card-foreground p-6 rounded-lg shadow-md">
+      <div className="bg-white text-card-foreground p-6 rounded-lg shadow-md">
         <div className="flex justify-center mb-4 text-yellow-500">
           <FaEnvelope size={40} />
         </div>
@@ -34,7 +34,7 @@ const ThreeCardsSection = () => {
         </p>
         <div className="flex justify-center">
           <Link to="/contact">
-            <button className="bg-yellow-300 hover:bg-black hover:text-white py-2 px-4 rounded">
+            <button className="bg-black hover:bg-yellow-300 text-white py-2 px-4 rounded hover:text-black">
               Get in Touch
             </button>
           </Link>
@@ -42,7 +42,7 @@ const ThreeCardsSection = () => {
       </div>
 
       {/* Our Projects Card */}
-      <div className="bg-green-100 text-card-foreground p-6 rounded-lg shadow-md">
+      <div className="bg-white text-card-foreground p-6 rounded-lg shadow-md">
         <div className="flex justify-center mb-4 text-yellow-500">
           <FaProjectDiagram size={40} />
         </div>
@@ -52,7 +52,7 @@ const ThreeCardsSection = () => {
         </p>
         <div className="flex justify-center">
           <Link to="/projects">
-            <button className="bg-yellow-300 hover:bg-black hover:text-white py-2 px-4 rounded">
+            <button className="bg-black hover:bg-yellow-300 text-white py-2 px-4 rounded hover:text-black">
               View Projects
             </button>
           </Link>
