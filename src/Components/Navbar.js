@@ -41,8 +41,8 @@ const NavBar = () => {
         <Link to="/about-us">
           <div className="block md:inline-block hover:text-teal-500 px-3 py-3 md:border-none">About Us</div>
         </Link>
-        <Link to="/gallery">
-          <div className="block md:inline-block hover:text-teal-500 px-3 py-3 md:border-none">Gallery</div>
+        <Link to="/programs">
+          <div className="block md:inline-block hover:text-teal-500 px-3 py-3 md:border-none">Programs</div>
         </Link>
         <Link to="/contact-us">
           <div className="block md:inline-block hover:text-teal-500 px-3 py-3 md:border-none">Contact Us</div>

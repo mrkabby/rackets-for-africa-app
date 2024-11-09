@@ -7,6 +7,7 @@ import DonationsPage from './Pages/DonationsPage';
 import SplashScreen from './Pages/SplashPage';
 import Nopage from './Pages/Nopage';
 import GalleryPage from './Pages/Gallery';
+import ProgramsPage from './Pages/ProgramsPage';
 
 export default function App() {
   return (
@@ -20,8 +21,8 @@ export default function App() {
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/contact-us" element={<ContactUsPage />} />
         <Route path="/donations" element={<DonationsPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-
+        <Route path="/programs" element={<ProgramsPage />} />
+        <Route path="/gallery/:imageId" element={<GalleryPage />} />
         {/* No Page / 404 Route */}
         <Route path="*" element={<Nopage />} />
       </Routes>
