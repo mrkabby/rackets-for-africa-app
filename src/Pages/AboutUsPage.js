@@ -10,7 +10,7 @@ const AboutUsPage = () => {
   return (
     <>
       <div className="relative min-h-screen bg-background">
-        {/* Navbar */}
+       
         <NavBar />
 
         {/* Main Content */}

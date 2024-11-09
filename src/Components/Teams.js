@@ -54,7 +54,7 @@ const TeamGrid = () => {
             className="bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden"
           >
             <img
-              className="w-full h-48 object-cover"
+              className="w-full h-60 object-cover"
               src={member.image}
               alt={`${member.name} Portrait`}
             />

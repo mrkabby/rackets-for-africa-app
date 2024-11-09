@@ -1,7 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom"; // Import Link for navigation
 import NavBar from "../Components/Navbar";
-
 
 import Image16 from "../images/IMG-20241109-WA0016.jpg";
 import Image17 from "../images/IMG-20241109-WA0017.jpg";
@@ -21,13 +20,10 @@ import Legon2 from "../images/RAF--138.jpg";
 import Legon3 from "../images/RAF--20.jpg";
 import Legon4 from "../images/RAF--21.jpg";
 import Legon5 from "../images/RAF--23.jpg";
-import Legon6 from "../images/RAF--73.jpg"
-import Legon7 from "../images/RAF-09980.jpg"
-
-
+import Legon6 from "../images/RAF--73.jpg";
+import Legon7 from "../images/RAF-09980.jpg";
 import Footer from "../Components/Footer";
 
-// Array of images, each grouped with id: 1
 const images = [
   { id: 1, src: Image16, alt: "Program Event Image 16" },
   { id: 1, src: Image17, alt: "Program Event Image 17" },
@@ -49,8 +45,6 @@ const images = [
   { id: 2, src: Legon5, alt: "Second Edition Image 5" },
   { id: 2, src: Legon6, alt: "Second Edition Image 6" },
   { id: 2, src: Legon7, alt: "Second Edition Image 7" },
-  // { id: 2, src: Legon8, alt: "Second Edition Image 1" },
-  // { id: 2, src: Legon9, alt: "Second Edition Image 1" },
 ];
 
 const GalleryPage = () => {
@@ -60,8 +54,18 @@ const GalleryPage = () => {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen bg-gray-100 p-8">
-        <h1 className="text-4xl font-bold text-center mb-8">Gallery</h1>
+      <div className="min-h-screen bg-gray-100 p-8 pt-32">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-bold text-center flex-grow">Gallery</h1>
+          
+          {/* Back Button */}
+          <Link
+            to="/programs"
+            className=" text-black px-4 py-2 rounded-lg font-semibold  transition underline"
+          >
+            Back to Programs
+          </Link>
+        </div>
 
         {selectedImages.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
