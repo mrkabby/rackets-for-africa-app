@@ -15,7 +15,7 @@ const ThreeCardsSection = () => {
           Your support helps us continue our mission. Consider contributing to our cause.
         </p>
         <div className="flex justify-center">
-          <Link to="/support">
+          <Link to="/donations">
             <button className="bg-black hover:bg-yellow-300 text-white py-2 px-4 rounded hover:text-black">
               Learn More
             </button>
@@ -33,7 +33,7 @@ const ThreeCardsSection = () => {
           We'd love to hear from you! Reach out to us for any inquiries or feedback.
         </p>
         <div className="flex justify-center">
-          <Link to="/contact">
+          <Link to="/contact-us">
             <button className="bg-black hover:bg-yellow-300 text-white py-2 px-4 rounded hover:text-black">
               Get in Touch
             </button>
@@ -51,7 +51,7 @@ const ThreeCardsSection = () => {
           Explore the projects we're working on and see how we're making a difference.
         </p>
         <div className="flex justify-center">
-          <Link to="/projects">
+          <Link to="/programs">
             <button className="bg-black hover:bg-yellow-300 text-white py-2 px-4 rounded hover:text-black">
               View Projects
             </button>

@@ -10,14 +10,14 @@ import ProgramImage3 from "../images/Logo.png";
 const programs = [
   {
     id: 1,
-    name: "First Edition",
-    date: "2023-09-15",
-    description:
-      "We donated rackets to the youth in these locations: Winneba Sports College, Sakumono School Complex, Labadi, and Kumasi.",
-    image: ProgramImage1, 
-    imageId: 1, 
-    status: "past",
+    name: "Upcoming Regional Tournament",
+    date: "2024-01-10",
+    description: "An upcoming tournament to bring together local teams.",
+    image: ProgramImage3,
+    imageId: 1,
+    status: "upcoming",
   },
+  
   {
     id: 2,
     name: "Second Edition",
@@ -29,12 +29,13 @@ const programs = [
   },
   {
     id: 3,
-    name: "Upcoming Regional Tournament",
-    date: "2024-01-10",
-    description: "An upcoming tournament to bring together local teams.",
-    image: ProgramImage3,
-    imageId: 3,
-    status: "upcoming",
+    name: "First Edition",
+    date: "2023-09-15",
+    description:
+      "We donated rackets to the youth in these locations: Winneba Sports College, Sakumono School Complex, Labadi, and Kumasi.",
+    image: ProgramImage1, 
+    imageId: 3, 
+    status: "past",
   },
 ];
 
