@@ -50,7 +50,7 @@ const ContactPage = () => {
     <>
       <NavBar />
       <div
-        className="relative min-h-screen bg-cover bg-center p-8 pt-24 flex flex-col items-center"
+        className="relative min-h-screen bg-cover bg-center p-8 pt-44 flex flex-col items-center"
         style={{
           backgroundImage: `url(${BackgroundImage})`,
         }}

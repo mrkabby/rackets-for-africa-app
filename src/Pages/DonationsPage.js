@@ -1,28 +1,61 @@
 import React, { useState } from "react";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import BackgroundImage from "../images/RAF-09980.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDonate, faHandsHelping, faLock } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import emailjs from 'emailjs-com';
 
 const DonationPage = () => {
-  const [donationAmount, setDonationAmount] = useState(""); // State to store the amount
+  const [donationAmount, setDonationAmount] = useState("");
+  const [volunteerSubmitted, setVolunteerSubmitted] = useState(false);
+  const [volunteerData, setVolunteerData] = useState({ fullName: "", email: "" });
 
+  // Handle donation amount input
   const handleAmountChange = (event) => {
-    setDonationAmount(event.target.value); // Update amount
+    const value = event.target.value;
+    if (/^\d*(\.\d{0,2})?$/.test(value) || value === "") {
+      setDonationAmount(value);
+    }
+  };
+
+  // Handle volunteer data input
+  const handleVolunteerChange = (event) => {
+    const { name, value } = event.target;
+    setVolunteerData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   // Handle volunteer form submission
   const handleVolunteerSubmit = (event) => {
     event.preventDefault();
-    alert("Thank you for volunteering!");
+    emailjs
+      .send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        {
+          fullName: volunteerData.fullName,
+          email: volunteerData.email,
+        },
+        process.env.REACT_APP_EMAILJS_USER_ID
+      )
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setVolunteerSubmitted(true);
+          setTimeout(() => setVolunteerSubmitted(false), 3000);
+          setVolunteerData({ fullName: "", email: "" });
+        },
+        (error) => {
+          console.error('FAILED...', error);
+        }
+      );
   };
 
   return (
-    <PayPalScriptProvider options={{ "client-id": "YOUR_CLIENT_ID" }}> {/* Replace with actual PayPal client ID */}
+    <>
       <NavBar />
       <div
-        className="relative min-h-screen flex flex-col items-center pt-20 md:pt-24 p-6 bg-cover bg-center bg-blend-overlay"
+        className="relative min-h-screen flex flex-col items-center pt-28 md:pt-24 p-6 bg-cover bg-center"
         style={{ backgroundImage: `url(${BackgroundImage})` }}
       >
         {/* Overlay */}
@@ -45,45 +78,34 @@ const DonationPage = () => {
               <div className="flex flex-col space-y-4 flex-grow">
                 {/* Input Field for Donation Amount */}
                 <input
-                  type="number"
+                  type="text"
                   placeholder="Enter Donation Amount (e.g., 10.00)"
-                  className="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  className="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 mb-4"
                   value={donationAmount}
                   onChange={handleAmountChange}
+                  aria-label="Donation Amount"
                   required
                 />
-
-                {/* PayPal Donate Button */}
-                {donationAmount ? (
-                  <PayPalButtons
-                    style={{ layout: "vertical", shape: "rect", label: "donate" }}
-                    createOrder={(data, actions) => {
-                      return actions.order.create({
-                        purchase_units: [
-                          {
-                            amount: {
-                              value: donationAmount, // Use user-entered amount
-                            },
-                          },
-                        ],
-                      });
-                    }}
-                    onApprove={(data, actions) => {
-                      return actions.order.capture().then((details) => {
-                        alert(`Thank you, ${details.payer.name.given_name}, for your donation!`);
-                      });
-                    }}
-                  />
-                ) : (
+                <form
+                  action="https://www.paypal.com/donate"
+                  method="post"
+                  target="_top"
+                  className="flex justify-center"
+                >
+                  <input type="hidden" name="business" value={process.env.REACT_APP_PAYPAL_BUSINESS} />
+                  <input type="hidden" name="no_recurring" value="0" />
+                  <input type="hidden" name="item_name" value="Donate to us" />
+                  <input type="hidden" name="currency_code" value="USD" />
                   <button
-                    disabled
-                    className="bg-gray-300 text-gray-500 p-2 rounded cursor-not-allowed"
+                    type="submit"
+                    className="bg-yellow-400 text-black font-bold py-2 px-4 rounded-lg shadow-lg w-full"
+                    disabled={!donationAmount || parseFloat(donationAmount) <= 0}
                   >
-                    Enter an amount to enable donation
+                    Donate with PayPal
                   </button>
-                )}
+                </form>
               </div>
-              <p className="text-xs text-gray-500 mt-4 ">
+              <p className="text-xs text-gray-500 mt-4">
                 <FontAwesomeIcon icon={faLock} className="mr-2" /> Powered by PayPal
               </p>
             </div>
@@ -97,28 +119,40 @@ const DonationPage = () => {
               <form onSubmit={handleVolunteerSubmit} className="flex flex-col space-y-4 flex-grow">
                 <input
                   type="text"
+                  name="fullName"
                   placeholder="Full Name"
                   className="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  value={volunteerData.fullName}
+                  onChange={handleVolunteerChange}
                   required
+                  aria-label="Full Name"
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email Address"
                   className="p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  value={volunteerData.email}
+                  onChange={handleVolunteerChange}
                   required
+                  aria-label="Email Address"
                 />
                 <button
                   type="submit"
-                  className="flex items-center justify-center bg-green-100 text-secondary-foreground p-2 rounded hover:bg-green-200"
+                  className="bg-green-100 text-secondary-foreground p-2 rounded hover:bg-green-200"
                 >
                   Join as Volunteer
                 </button>
               </form>
+              {volunteerSubmitted && (
+                <p className="text-green-600 text-sm mt-4">Thank you for volunteering!</p>
+              )}
             </div>
           </div>
         </div>
       </div>
-    </PayPalScriptProvider>
+      <Footer />
+    </>
   );
 };
 
